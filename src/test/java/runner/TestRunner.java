@@ -7,13 +7,13 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features=".//Features/admin.feature",
+		features=".//Features/AddNewcustomer.feature",
 		glue = "stepdefinations",
 		dryRun = false,
 		monochrome = true,
 		publish = true,
+	    tags = "@raj"
 		//tags = "@Sanity"
-		tags = "@Sanity"
 		
 		)
 public class TestRunner {

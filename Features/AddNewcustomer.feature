@@ -1,25 +1,26 @@
+Feature:Customer
 
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
-
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
-
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+@raj
+Scenario Outline: Add New Customer
+ Given User Lanch Chrome Browser
+  When   User open url "https://admin-demo.nopcommerce.com/login"
+  And   User enter Email as "<email>" and password as "<password>"
+  And   User click on Login button
+  Then User can view Dashboard
+   When user click on customers menu
+   And  User click on customers menu item
+   And User click on new add button
+   Then User can view add new customer page
+   When user enter customer info as "<newEmail>" and "<newPass>" and "<fname>" and "<lname>" and "<gender>" and "<comName>" and "<adminCommenet>"
+   And user click on save button
+   Then User can view confirmation msg "The new customer has been added successfully."
+   And close browser
+   
+    Examples:
+   |email|password|newEmail|newPass|fname|lname|gender|comName|adminCommenet|
+   |admin@yourstore.com|admin|raj11@gmail.com|1234|Bali17|Raj|Male|ABC|Test1|
+   |admin@yourstore.com|admin|radh1ika33@gmail.com|4537|Radha|Patel|Female|xyz|Test2|
+   |admin@yourstore.com|admin|Madhari21@gmail.com|4589|Madhu|Patil|Female|pqr|Test3|
+   
+   
+ 

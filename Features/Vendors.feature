@@ -1,25 +1,21 @@
 
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature:Vendor
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
-
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+@reg
+Scenario Outline: Search vendor
+ Given  User Lanch Chrome Browser
+  When   User open url "https://admin-demo.nopcommerce.com/login"
+  And   User enter Email as "<email>" and password as "<password>"
+  And   User click on Login button
+  Then User can view Dashboard
+  When user click on customers menu
+  And  User click on vendor item
+  Then User can view vendor page
+  When User enter Vendor name as "<Vendorname>" and password as "<Vendoremail>"
+  And  User click on Search button
+  And close browser
+  
+  Examples:
+   |email|password|Vendorname|Vendoremail|
+   |admin@yourstore.com|admin|Vendor 1|vendor1email@gmail.com|
+   |admin@yourstore.com|admin|Vendor 2|vendor2email@gmail.com|
